@@ -1,39 +1,60 @@
 package com.example.flyi
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.ListAdapter
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+
 
 class search_results : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_results)
 
-       this.getDestinations()
+        this.getDestinations()
+
+
     }
 
     private fun getDestinations() {
-        val jsonString: String = this.assets.open("destinations/destinations.json")
-            .bufferedReader().use { it.readText() }
+        val sharedPreferences = getSharedPreferences("data", MODE_PRIVATE)
+
+        Log.d("messing", sharedPreferences.getString("search_params", "").toString())
 
         val gson = Gson()
+        val jsonString: String? = sharedPreferences.getString("destinations", "")
         val connectionsList = object : TypeToken<List<Connection>>() {}.type
 
         val data = gson.fromJson<List<Connection>>(jsonString, connectionsList)
+        val context = this
 
         var mListView = findViewById<ListView>(R.id.results)
-        val arrayAdapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_list_item_1, data
-        )
+        val arrayAdapter = ConnectionListAdapter(context, data)
 
         mListView.adapter = arrayAdapter
+
+        mListView.onItemClickListener = object : AdapterView.OnItemClickListener {
+            override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                val itemValue = mListView.getItemAtPosition(p2)
+
+                val sharedPreferences: SharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+                val myEdit = sharedPreferences.edit()
+
+                myEdit.putString("selected_destination", gson.toJson(itemValue))
+                myEdit.apply()
+
+                val switchActivityIntent = Intent(context, detail::class.java)
+                startActivity(switchActivityIntent)
+                context.finish()
+            }
+
+        }
 
     }
 }

@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "to": "Istanbul",
-    "from": "Ljubljana, Brnik",
+    "to": "b",
+    "from": "a",
     "kids": true,
     "passengers": 100,
     "length": 1.5,

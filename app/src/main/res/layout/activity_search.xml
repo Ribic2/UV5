@@ -6,17 +6,129 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/search_activity"
-        tools:context=".Search" android:background="#FFFFFF">
-
+        tools:context=".Search">
     <LinearLayout
             android:orientation="vertical"
-            android:layout_width="412dp"
-            android:layout_height="526dp" tools:layout_editor_absoluteY="207dp" tools:layout_editor_absoluteX="0dp"
-            android:backgroundTint="#FFFFFF"  android:translationZ="999dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="200dp">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <Switch
+                    android:text="Round-trip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/round_trip"
+                    android:layout_weight="1"
+                    tools:ignore="UseSwitchCompatOrMaterialXml"/>
+            <Switch
+                    android:text="One-way"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/one_way"
+                    android:layout_weight="1"
+                    tools:ignore="UseSwitchCompatOrMaterialXml"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="111dp">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="263dp"
+                    android:layout_height="match_parent">
+                <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:hint="From..."
+                        android:ems="10"
+                        android:id="@+id/from" android:minHeight="48dp"/>
+                <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:hint="To..."
+                        android:ems="10"
+                        android:id="@+id/to" android:minHeight="48dp"/>
+            </LinearLayout>
+            <Button
+                    android:text="Switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/switch_destinations"
+                    android:layout_weight="1"/>
+        </LinearLayout>
+        <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+        />
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="Departure..."
+                android:id="@+id/departure"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="Arrival..."
+                android:ems="10"
+                android:id="@+id/arrival"/>
+        <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+        />
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:hint="Passengers..."
+                android:id="@+id/passengers" android:minHeight="48dp"/>
+        <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+        />
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+            <Switch
+                    android:text="economy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp" android:id="@+id/switch2" android:layout_weight="1"/>
+            <Switch
+                    android:text="business"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp" android:id="@+id/switch4" android:layout_weight="1"/>
+            <Switch
+                    android:text="first class"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp" android:id="@+id/switch3" android:layout_weight="1"/>
+        </LinearLayout>
+        <Button
+                android:text="Search flights"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/search"/>
     </LinearLayout>
-    <ImageView
-            android:layout_width="412dp"
-            android:layout_height="276dp" tools:srcCompat="@drawable/plane"
-            android:id="@+id/imageView" tools:layout_editor_absoluteX="-1dp" tools:layout_editor_absoluteY="0dp"
-            android:scaleX="2" android:scaleY="2"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

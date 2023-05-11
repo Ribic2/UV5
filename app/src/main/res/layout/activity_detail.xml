@@ -7,4 +7,22 @@
         android:layout_height="match_parent"
         tools:context=".detail">
 
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/title"
+        />
+        <Button
+                android:text="Select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/goToAllPassengers"/>
+        <Button
+                android:text="Go back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/goBackToAll"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

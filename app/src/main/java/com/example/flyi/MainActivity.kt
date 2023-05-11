@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun switchActivities() {
-        val switchActivityIntent = Intent(this, search_results::class.java)
+        val switchActivityIntent = Intent(this, Search::class.java)
         startActivity(switchActivityIntent)
         this.finish()
     }

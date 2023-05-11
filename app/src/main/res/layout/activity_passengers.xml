@@ -7,4 +7,76 @@
         android:layout_height="match_parent"
         tools:context=".passengers">
 
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="1dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="1dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <com.google.android.material.button.MaterialButton
+                    app:icon="@drawable/baseline_chevron_left_24"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    app:iconPadding="0dp"
+                    app:iconGravity="textStart"
+                    android:id="@+id/goBackToDetail"/>
+            <TextView
+                    android:text="Passengers"
+                    android:layout_width="249dp"
+                    android:layout_height="wrap_content" android:id="@+id/textView5" android:textAlignment="center"/>
+            <Button
+                    android:text="Add new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/addNewPassenger"/>
+        </LinearLayout>
+        <TextView
+                android:hint="Add passenger info and select the holder of the ticket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView6"/>
+        <View
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+        />
+        <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+        />
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="556dp" tools:layout_editor_absoluteY="1dp"
+                tools:layout_editor_absoluteX="1dp">
+
+            <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/results_passengers">
+            </ListView>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/price"/>
+            <Button
+                    android:text="Continue to payment"
+                    android:layout_width="408dp"
+                    android:layout_height="wrap_content" android:id="@+id/goToPayment"/>
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
