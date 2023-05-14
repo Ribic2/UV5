@@ -27,12 +27,22 @@ class ConnectionListAdapter(private val context: Activity, private val destinati
         var convertView = view
         convertView = LayoutInflater.from(context).inflate(R.layout.connection_list, parent, false)
 
-        val destination_from = convertView.findViewById<TextView>(R.id.destination_from)
-        val destination_to = convertView.findViewById<TextView>(R.id.destination_to)
+        val destination_from_to = convertView.findViewById<TextView>(R.id.connection_destination_from_to)
+        val length = convertView.findViewById<TextView>(R.id.connection_length)
+        val passengers = convertView.findViewById<TextView>(R.id.connection_passengers)
+        val type = convertView.findViewById<TextView>(R.id.connection_type)
+
         val sharedPreferences: SharedPreferences = context.getSharedPreferences("data", AppCompatActivity.MODE_PRIVATE)
 
-        destination_from.text = destinations.get(position).from
-        destination_to.text = destinations.get(position).to
+        destination_from_to.text = destinations.get(position).from + " " + destinations.get(position).to
+        length.text = destinations.get(position).connection_length.toString()
+        if (destinations.get(position).isOneWay) {
+            type.text = "One-way"
+        } else {
+            type.text = "Round-way"
+        }
+        passengers.text = destinations.get(position).passengers.toString()
+
         return convertView
     }
 }

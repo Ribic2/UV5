@@ -31,12 +31,10 @@ class Search : AppCompatActivity() {
         val passengers = findViewById<EditText>(R.id.passengers)
         val one_way = findViewById<Switch>(R.id.one_way)
         val round_trip = findViewById<Switch>(R.id.round_trip)
-        val sharedPreferences = getSharedPreferences("data", MODE_PRIVATE)
         val context = this
 
 
         // Set dropdowns
-        val planets_array = resources.getStringArray(R.array.planets_array)
         val gson = Gson()
         val jsonString: String = this.assets.open("destinations/destinations.json")
             .bufferedReader().use { it.readText() }
@@ -60,10 +58,6 @@ class Search : AppCompatActivity() {
                 parent: AdapterView<*>,
                 view: View, position: Int, id: Long
             ) {
-                Toast.makeText(
-                    context,
-                    planets_array[position], Toast.LENGTH_SHORT
-                ).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -126,7 +120,7 @@ class Search : AppCompatActivity() {
 
         searchButton.setOnClickListener {
 
-            if (passengers.text.length == 0) {
+            if (passengers.text.isEmpty()) {
                 passengers.setText("1")
             }
 
@@ -151,7 +145,7 @@ class Search : AppCompatActivity() {
             val itr = data.listIterator()    // or, use `iterator()`
             while (itr.hasNext()) {
                 val conn: Connection = itr.next()
-                if (conn.from == from.selectedItem.toString()) {
+                if ((conn.from == from.selectedItem.toString() && conn.to == to.selectedItem.toString()) || conn.isOneWay == one_way.isChecked) {
                     find.add(conn)
                 }
             }

@@ -6,14 +6,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/search_activity"
+        android:background="@color/white"
         tools:context=".Search">
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="529dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="200dp">
+            android:layout_marginTop="200dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp">
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -21,46 +23,53 @@
             <Switch
                     android:text="Round-trip"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:textColor="@android:color/darker_gray"
                     android:id="@+id/round_trip"
                     android:layout_weight="1"
                     tools:ignore="UseSwitchCompatOrMaterialXml"/>
             <Switch
                     android:text="One-way"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
+                    android:textColor="@android:color/darker_gray"
                     android:id="@+id/one_way"
+                    android:textColorHint="@android:color/darker_gray"
                     android:layout_weight="1"
                     tools:ignore="UseSwitchCompatOrMaterialXml"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="111dp">
+                android:layout_height="wrap_content">
             <LinearLayout
                     android:orientation="vertical"
-                    android:layout_width="263dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
                         android:hint="From..."
+                        android:textColor="@android:color/darker_gray"
+                        android:layout_marginBottom="8dp"
                         android:ems="10"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:background="@drawable/input_rounded"
                         android:id="@+id/from" android:minHeight="48dp"/>
                 <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
                         android:hint="To..."
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/input_rounded"
+                        android:textColor="@android:color/darker_gray"
                         android:ems="10"
+                        android:textColorHint="@android:color/darker_gray"
                         android:id="@+id/to" android:minHeight="48dp"/>
             </LinearLayout>
-            <Button
-                    android:text="Switch"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:id="@+id/switch_destinations"
-                    android:layout_weight="1"/>
         </LinearLayout>
         <View
                 android:id="@+id/divider"
@@ -70,26 +79,34 @@
         />
         <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:inputType="date"
+                android:layout_marginBottom="8dp"
                 android:ems="10"
                 android:clickable="false"
+                android:textColor="@android:color/darker_gray"
                 android:cursorVisible="false"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@drawable/input_rounded"
                 android:hint="Departure..."
                 android:id="@+id/departure"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
+                android:background="@drawable/input_rounded"
                 android:clickable="false"
+                android:layout_marginBottom="8dp"
                 android:cursorVisible="false"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
                 android:hint="Arrival..."
+                android:textColor="@android:color/darker_gray"
+                android:textColorHint="@android:color/darker_gray"
                 android:ems="10"
-                android:id="@+id/arrival"/>
+                android:id="@+id/arrival" android:minHeight="48dp"/>
         <View
                 android:id="@+id/divider2"
                 android:layout_width="match_parent"
@@ -99,14 +116,18 @@
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="number"
+                android:textColorHint="@android:color/darker_gray"
                 android:ems="10"
+                android:background="@drawable/input_rounded"
                 android:hint="Passengers..."
+                android:textColor="@android:color/darker_gray"
                 android:id="@+id/passengers" android:minHeight="48dp"/>
         <View
                 android:id="@+id/divider3"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
                 android:background="?android:attr/listDivider"
         />
         <LinearLayout
@@ -116,19 +137,23 @@
             <Switch
                     android:text="economy"
                     android:layout_width="wrap_content"
+                    android:textColor="@android:color/darker_gray"
                     android:layout_height="48dp" android:id="@+id/switch2" android:layout_weight="1"/>
             <Switch
                     android:text="business"
                     android:layout_width="wrap_content"
+                    android:textColor="@android:color/darker_gray"
                     android:layout_height="48dp" android:id="@+id/switch4" android:layout_weight="1"/>
             <Switch
                     android:text="first class"
                     android:layout_width="wrap_content"
+                    android:textColor="@android:color/darker_gray"
                     android:layout_height="48dp" android:id="@+id/switch3" android:layout_weight="1"/>
         </LinearLayout>
         <Button
                 android:text="Search flights"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/search"/>
+                android:textColor="@android:color/darker_gray"
+                android:layout_height="48dp" android:id="@+id/search" android:minHeight="48dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

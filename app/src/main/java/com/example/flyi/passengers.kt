@@ -53,9 +53,14 @@ class passengers : AppCompatActivity() {
         val gson = Gson()
         val passengers = sharedPreferences.getString("passengers", "");
         val type = object : TypeToken<ArrayList<Passenger>>() {}.type
-        val arrayList: ArrayList<Passenger> = gson.fromJson(passengers, type)
 
-        return arrayList.size
+        if (passengers != null) {
+            if(!passengers.isEmpty()){
+                val arrayList: ArrayList<Passenger> = gson.fromJson(passengers, type)
+                return arrayList.size
+            }
+        }
+        return 1
     }
 
     private fun getNumberOfPassengers(): SearchParams {
@@ -102,15 +107,15 @@ class passengers : AppCompatActivity() {
             return 0
         }
         passengersArrayList.forEach {
-            if (it.age.toString().toInt() < 12) {
+            if (it.age.toInt() < 12) {
                 calculation += flightClass.priceKid
             }
 
-            if (it.age.toString().toInt() in 12..17) {
+            if (it.age.toInt() in 12..17) {
                 calculation += flightClass.priceTeen
             }
 
-            if (it.age.toString().toInt() >= 18) {
+            if (it.age.toInt() >= 18) {
                 calculation += flightClass.priceAdult
             }
         }

@@ -13,8 +13,8 @@ data class Connection(
     val kids: Boolean,
     @SerializedName("passengers")
     val passengers: Int,
-    @SerializedName("length")
-    val length: Double,
+    @SerializedName("connection_length")
+    val connection_length: Double,
     @SerializedName("isOneWay")
     val isOneWay: Boolean,
     @SerializedName("departure")

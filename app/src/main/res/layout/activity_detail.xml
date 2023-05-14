@@ -13,9 +13,23 @@
             android:layout_height="match_parent">
         <TextView
                 android:text="TextView"
-                android:layout_width="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="32sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/title"
         />
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/detail_passengers"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/detail_length"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/detail_type"/>
         <Button
                 android:text="Select"
                 android:layout_width="match_parent"
