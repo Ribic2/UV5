@@ -17,10 +17,10 @@
         "priceTeen": 10
       },
       {
-        "name": "economic",
-        "priceAdult": 20,
-        "priceKid": 2,
-        "priceTeen": 10
+        "name": "business",
+        "priceAdult": 100,
+        "priceKid": 30,
+        "priceTeen": 100
       }
     ]
   },

@@ -15,6 +15,13 @@ class processing_payment : AppCompatActivity() {
     }
 
     private fun switchActivities() {
+        val sharedPreferences = getSharedPreferences("data", MODE_PRIVATE)
+        val edit = sharedPreferences.edit()
+
+        edit.remove("passengers")
+        edit.remove("delete_at")
+        edit.commit()
+
         val switchActivityIntent = Intent(this, payment_successful::class.java)
         startActivity(switchActivityIntent)
         this.finish()

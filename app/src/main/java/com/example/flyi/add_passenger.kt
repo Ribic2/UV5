@@ -17,11 +17,18 @@ class add_passenger : AppCompatActivity() {
         setContentView(R.layout.activity_add_passenger)
 
         val addNewPassengerButton = findViewById<Button>(R.id.addNewPassengerButton)
+        val goBackToAllPassengers = findViewById<Button>(R.id.goBackToAllPassengers)
 
 
         addNewPassengerButton.setOnClickListener {
             this.addNewPassenger()
 
+            val switchActivityIntent = Intent(this, passengers::class.java)
+            startActivity(switchActivityIntent)
+            this.finish()
+        }
+
+        goBackToAllPassengers.setOnClickListener {
             val switchActivityIntent = Intent(this, passengers::class.java)
             startActivity(switchActivityIntent)
             this.finish()

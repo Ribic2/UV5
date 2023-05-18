@@ -12,6 +12,11 @@
             android:theme="@style/Theme.Flyi.noActionBar"
             tools:targetApi="31">
         <activity
+                android:name=".delete_passenger"
+                android:exported="false"
+                android:label="@string/title_activity_delete_passenger"
+                android:theme="@style/Theme.Flyi.noActionBar.NoActionBar"/>
+        <activity
                 android:name=".search_results"
                 android:exported="false"/>
         <activity

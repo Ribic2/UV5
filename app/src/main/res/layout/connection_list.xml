@@ -15,25 +15,25 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/opensans_bold"
                 android:textSize="32sp"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@android:color/black"
                 android:id="@+id/connection_destination_from_to"/>
         <TextView
                 android:text="TextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@android:color/black"
                 android:id="@+id/connection_length"/>
 
         <TextView
                 android:text="TextView"
                 android:layout_width="match_parent"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@android:color/black"
                 android:layout_height="wrap_content"
                 android:id="@+id/connection_type"/>
 
         <TextView
                 android:text="TextView"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/connection_passengers"/>

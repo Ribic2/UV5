@@ -44,7 +44,11 @@ class passengers : AppCompatActivity() {
             this.finish()
         }
 
-        price.text = calculatePrice().toString()
+        price.text = calculatePrice().toString() + " €"
+
+        if (this.getNumberOfAddedPassengers() == 0) {
+            goToPayment.isEnabled = false
+        }
         this.addPassengersToText()
     }
 
@@ -55,7 +59,7 @@ class passengers : AppCompatActivity() {
         val type = object : TypeToken<ArrayList<Passenger>>() {}.type
 
         if (passengers != null) {
-            if(!passengers.isEmpty()){
+            if (!passengers.isEmpty()) {
                 val arrayList: ArrayList<Passenger> = gson.fromJson(passengers, type)
                 return arrayList.size
             }
@@ -99,11 +103,12 @@ class passengers : AppCompatActivity() {
 
         val passengersArrayList: ArrayList<Passenger> = gson.fromJson(passengers, type)
         val connection: Connection = gson.fromJson(selected_destination, Connection::class.java)
+        val selectedClass = sharedPreferences.getString("class", "economic")
 
-        val flightClass = connection.classes[0]
+        val flightClass = connection.classes.filter { it -> it.name.equals(selectedClass) }[0]
 
 
-        if(passengersArrayList.size == 0){
+        if (passengersArrayList.size == 0) {
             return 0
         }
         passengersArrayList.forEach {

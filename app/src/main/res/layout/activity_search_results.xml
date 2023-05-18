@@ -9,10 +9,17 @@
         tools:context=".search_results">
 
     <LinearLayout
+            android:layout_margin="10dp"
             android:orientation="vertical"
-            android:layout_width="409dp"
-            android:layout_height="729dp" tools:layout_editor_absoluteY="1dp" tools:layout_editor_absoluteX="1dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="1dp"
+    >
 
+        <Button
+                android:text="Go back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/backToSearch"/>
         <ListView android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/results"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

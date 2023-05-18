@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
+import android.widget.Button
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -18,6 +19,14 @@ class search_results : AppCompatActivity() {
         setContentView(R.layout.activity_search_results)
 
         this.getDestinations()
+
+        val backToSearch = findViewById<Button>(R.id.backToSearch)
+
+        backToSearch.setOnClickListener {
+            val switchActivityIntent = Intent(this, Search::class.java)
+            startActivity(switchActivityIntent)
+            this.finish()
+        }
 
 
     }

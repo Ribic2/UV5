@@ -1,6 +1,7 @@
 package com.example.flyi
 
 import android.app.Activity
+import android.content.Intent
 import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
@@ -9,17 +10,18 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class PassengerListAdapter(private val context: Activity, private val passengers: ArrayList<Passenger>) :
+class PassengerListAdapter(private val context: Activity, private val passengersArray: ArrayList<Passenger>) :
     BaseAdapter() {
     override fun getCount(): Int {
-        return passengers.size
+        return passengersArray.size
     }
 
     override fun getItem(position: Int): Any {
-        return passengers.get(position).name
+        return passengersArray.get(position).name
     }
 
     override fun getItemId(position: Int): Long {
@@ -39,21 +41,19 @@ class PassengerListAdapter(private val context: Activity, private val passengers
         val myEdit = sharedPreferences.edit()
 
         deleteButton.setOnClickListener {
-            val gson = Gson()
-            val passengers = sharedPreferences.getString("passengers", "");
-            val type = object : TypeToken<ArrayList<Passenger>>() {}.type
-            val arrayList: ArrayList<Passenger> = gson.fromJson(passengers, type)
+            myEdit.putString("delete_at", position.toString())
+            myEdit.commit()
 
-            arrayList.removeAt(position)
-            myEdit.putString("passengers", gson.toJson(arrayList))
-            myEdit.apply()
-            notifyDataSetChanged();
+
+            val switchActivityIntent = Intent(context, delete_passenger::class.java)
+            convertView.context.startActivity(switchActivityIntent)
+            context.finish()
         }
 
-        nameAndSurname.text = passengers.get(position).name + " " + passengers.get(position).surname
-        age.text = passengers.get(position).age
+        nameAndSurname.text = passengersArray.get(position).name + " " + passengersArray.get(position).surname
+        age.text = passengersArray.get(position).age
         residency.text =
-            passengers.get(position).houseNumber + " " + passengers.get(position).street + " " + passengers.get(position).city
+            passengersArray.get(position).houseNumber + " " + passengersArray.get(position).street + " " + passengersArray.get(position).city
         return convertView
     }
 }
